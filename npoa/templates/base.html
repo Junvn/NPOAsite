@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+        <!-- Favicons -->
+    <link rel="shortcut icon" type="image/png" HREF="/static/images/favicons/favicon.png"/>
+    <!-- Main Stylesheet-->
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+</head>
+
+<script type="text/javascript">
+    //获取系统时间，将时间以指定格式显示到页面。
+    function systemTime()
+    {
+        //获取系统时间。
+        var dateTime=new Date();
+        var yy=dateTime.getFullYear();
+        var MM=dateTime.getMonth();
+        var dd=dateTime.getDate();
+        var hh=dateTime.getHours();
+        var mm=dateTime.getMinutes();
+        var ss=dateTime.getSeconds();
+
+        //因为 var MM=dateTime.getMonth();0代表1月，1代表2月，所以使其加1
+        MM=MM+1
+        //分秒时间是一位数字，在数字前补0。
+        mm = extra(mm);
+        ss = extra(ss);
+
+        //将时间显示到ID为time的位置，时间格式形如：19:18:02
+        document.getElementById("time").innerHTML=""+yy+"年"+MM+"月"+dd+"日"+hh+":"+mm+":"+ss;
+
+        //每隔1000ms执行方法systemTime()。
+        setTimeout("systemTime()",1000);
+    }
+
+    //补位函数。
+    function extra(x)
+    {
+        //如果传入数字小于10，数字前补一位0。
+        if(x < 10)
+        {
+            return "0" + x;
+        }
+        else
+        {
+            return x;
+        }
+    }
+</script>
+
+<body onload="systemTime()">
+    <!-- Header -->
+    <header id="top">
+        <div class="wrapper">
+
+            <div id="title">网络舆情分析系统</div>
+            <div id="topnav">
+                <a href="#"><img class="avatar" SRC="/static/images/user_32.png" alt=""/></a>
+                当前时间：
+                <a id="time"></a>
+                <span>|</span>您好:<a>{{ username }}</a>
+                <span>|</span><a href="{% url "user_info_set" %}">用户设置</a>
+                <span>|</span><a href="{% url "logout" %}">退出系统</a><br/>
+            </div>
+
+            {% block menu %}{% endblock %}
+
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer id="bottom">
+        <div class="wrapper">
+            <p>Copyright &copy;2015<b>&nbsp;浙江工商大学信息学院508实验室</b></p>
+        </div>
+    </footer>
+
+</body>
+</html>

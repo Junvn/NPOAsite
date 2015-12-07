@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}网络舆情分析系统词条管理界面{% endblock %}
+
+{% block menu %}
+     <nav id="menu">
+                <ul class="sf-menu">
+                    <li><a href="{% url 'index' %}">舆情分析</a></li>
+                    <li><a href="{% url 'word_manager' %}">词条管理</a>
+                    <li><a href="{% url 'site_manager' %}">站点管理</a>
+                    <li><a href="{% url 'opinion_show' %}">舆情报表</a>
+                    <li><a href="{% url 'hot_topic_rank' %}">热点排行</a>
+                    <li class="current"><a>联系我们</a>
+                </ul>
+     </nav>
+{% endblock %}
+
+{% block content %}
+    <div id="pagetitle">
+        <div class="wrapper">
+            <h1>联系我们</h1>
+        </div>
+    </div>
+
+    <div id="page">
+    <div class="wrapper">
+            <section class="column width8 first">
+            <a>联系我们界面待编写</a>
+            </section>
+    </div>
+    </div>
+
+{% endblock %}

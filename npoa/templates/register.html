@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <title>网络舆情分析系统登录界面</title>
+    <!-- Favious -->
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicons/favicon.png"/>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
+</head>
+<body>
+    <!-- Header -->
+    <header id="top">
+        <div class="wrapper">
+            <!-- Title -->
+            <div id="title">网络舆情分析系统</div>
+        </div>
+    </header>
+    <!-- End of Header -->
+    <div id="pagetitle">
+        <div class="wrapper"></div>
+    </div>
+
+    <!-- Page content -->
+    <div id="page">
+        <!-- Wrapper -->
+        <div class="wrapper">
+            <!-- Login form -->
+            <section class="full">
+
+                <h3>用户注册</h3>
+                <div class="box box-info">所有项都需填写</div>
+
+                <form id="registerform" method = 'post' enctype="multipart/form-data">
+                {% csrf_token %}
+                   {{uf.as_p}}
+                <p><input type="submit" class="btn btn-green big" name="complete_register" value = "完成注册"/><input type="submit" class="btn btn-blue big"  name="goback_login" value="返回登录"></p>
+                </form>
+            </section>
+            <!-- End of login form -->
+        </div>
+    </div>
+
+<!-- Page footer -->
+<footer id="bottom">
+    <div class="wrapper">
+        <p>Copyright &copy;2015<b>&nbsp;浙江工商大学信息学院508实验室</b></p>
+    </div>
+</footer>
+<!-- End of page footer -->
+</body>
+</html>

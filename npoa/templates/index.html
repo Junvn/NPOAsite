@@ -1,0 +1,89 @@
+﻿{% extends "base.html" %}
+
+{% block title %}网络舆情分析系统主界面{% endblock %}
+
+{% block menu %}
+     <nav id="menu">
+                <ul class="sf-menu">
+                    <li class="current"><a>舆情分析</a></li>
+                    <li><a href="{% url "word_manager" %}">词条管理</a>
+                    <li><a href="{% url "site_manager" %}">站点管理</a>
+                    <li><a href="{% url "opinion_show" %}">舆情报表</a>
+                    <li><a href="{% url "hot_topic_rank" %}">热点排行</a>
+                    <li><a href="{% url "contact_us" %}">联系我们</a>
+                </ul>
+     </nav>
+{% endblock %}
+
+{% block content %}
+    <div id="pagetitle">
+        <div class="wrapper">
+            <h1>舆情分析</h1>
+        </div>
+    </div>
+
+    <div id="page">
+        <div class="wrapper">
+            <section class="column width8 first">
+
+                <h3>设置与选择</h3>
+                <div class="box box-info">必须填写所有项</div>
+
+                <form id="form" action="/search/" method="get">
+
+                    <fieldset>
+                        <legend>选择站点类别</legend>
+                        <div class="clearfix">
+                            <p>
+                                <label>站点：</label><br/>
+                                <select id="select_site" class="half" name="site_type">
+                                    <option value="news">新闻</option>
+                                    <option value="microblog">微博</option>
+                                    <option value="blog">博客</option>
+                                    <option value="forum">论坛</option>
+                                    <option value="e-commerce">电商</option>
+                                </select>
+                            </p>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <legend>设置关键词</legend>
+                        <div class="clearfix">
+                            <p>
+                                <label>关键词：</label><br/>
+                                <input class="" type="text" id="keyword" name="keyword"/>
+                            </p>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>设置分析时间段</legend>
+                        <div class="clearfix">
+                            <p>
+                                <label>时间：</label><br/>
+                                <input id="from_date" type="date" name="from_date"/>
+                                <label>至</label>
+                                <input id="to_date" type="date" name="to_date"/>
+                            </p>
+                        </div>
+
+                    </fieldset>
+
+
+                    <p class="box"><input type="submit" class="btn btn-green big" value="开始分析"/>&nbsp;<input type="reset" class="btn big" value="重置"/></p>
+
+                    <!--
+                    <input type="text" name="q">
+                    <input type="submit" value="Search">
+                    -->
+
+                </form>
+
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+

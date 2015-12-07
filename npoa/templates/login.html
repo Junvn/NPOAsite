@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>网络舆情分析系统登录界面</title>
+    <!-- Favious -->
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicons/favicon.png"/>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
+</head>
+<body>
+    <!-- Header -->
+    <header id="top">
+        <div class="wrapper-login">
+            <!-- Title -->
+            <div id="title">网络舆情分析系统</div>
+            <!-- Main navigation -->
+            <nav id="meau">
+                <ul class="sf-menu">
+                    <li class="current"><a>登录</a></li>
+                    <li><a href="{% url "register" %}">还没有账号，进行注册？</a></li>
+                </ul>
+            </nav>
+            <!-- End of Main navigation -->
+        </div>
+    </header>
+    <!-- End of Header -->
+    <div id="pagetitle">
+        <div class="wrapper-login"></div>
+    </div>
+
+    <!-- Page content -->
+    <div id="page">
+        <!-- Wrapper -->
+        <div class="wrapper-login">
+            <!-- Login form -->
+            <section class="full">
+                <form id="loginform" method="post">
+                    {% csrf_token %}
+                    <p>
+                        <label class="required" for="username">用户名：</label><br/>
+                        <input type="text" id="username" class="full" value="" name="username"/>
+                    </p>
+
+                    <p>
+                        <label class="required" for="password">密码：</label><br/>
+                        <input type="password" id="password" class="full" value="" name="password"/>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="remember" class="" value="1" name="remember"/>
+                        <label class="choice" for="remember">记住我？</label>
+                    </p>
+
+                    <p>
+                        <input type="submit" class="btn btn-green big" value="登录"/>&nbsp;
+                    </p>
+
+                    <div class="clear">&nbsp;</div>
+                </form>
+            </section>
+            <!-- End of login form -->
+        </div>
+    </div>
+
+
+
+<!-- Page footer -->
+<footer id="bottom">
+    <div class="wrapper-login">
+        <p>Copyright &copy;2015<b>&nbsp;浙江工商大学信息学院508实验室</b></p>
+    </div>
+</footer>
+<!-- End of page footer -->
+</body>
+</html>
